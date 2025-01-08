@@ -41,7 +41,12 @@ def main():
         for item in asteroids:
             if player.check_collisions(item):
                 print("Game Over!")
-                sys.exit()
+                sys.exit()  
+            for shot in shots:
+                if item.check_collisions(shot):
+                    item.split()
+                    shot.kill()
+                    break
         
         dt = clock.tick(60) * 0.001 
 
